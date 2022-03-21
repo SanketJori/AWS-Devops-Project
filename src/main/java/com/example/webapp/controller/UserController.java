@@ -72,8 +72,8 @@ public class UserController {
 		String aname = request.getParameter("admin_name");
 		String apassword = request.getParameter("admin_password");
 
-	
-		if (aname != null) {
+		System.out.println(aname + " " + apassword);
+		if(aname != null) {
 		
 			return "adminPannel";
 
@@ -88,5 +88,5 @@ public class UserController {
 	}
 	
 	
-
+	
 }

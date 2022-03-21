@@ -1,5 +1,7 @@
 package com.example.webapp.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,9 @@ public class PropertyService {
 		
 	}
 	
+	public List<Property> getAllProperty() {
+		return propertyRepository.findAll();
+	}
 	
 
 }

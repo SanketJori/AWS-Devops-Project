@@ -49,7 +49,7 @@ label {
 
 		<p style="color: red" class="text-center">${admin_error }</p>
 		<form class="m-auto" id="form-container"
-			action="processAdminLoginForm" method="post">
+			action="displayProperty" method="post">
 			<h3 class="text-center mt-2">Admin Login</h3>
 			<div class="mb-3">
 				<label for="adminEmail" class="form-label">Admin Name</label> <input
