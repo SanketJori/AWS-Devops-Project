@@ -45,8 +45,8 @@ body {
 					<div class="mb-3 col-6">
 						<label class="form-label fw-bold" for="property_type">Property
 							Type</label> <select class="form-select border-2 " id="property_type"
-							name="property_type" required>
-							<option value="">Select property type</option>
+							name="property_type"  required>
+							<option value="${property.getProperty_type()}">${property.getProperty_type()}</option>
 							<option value="plot">Plot</option>
 							<option value="flat">Flat</option>
 							<option value="house">House</option>
@@ -60,7 +60,7 @@ body {
 						<label class="form-label fw-bold" for="property_desc">Property
 							Description</label> <input class="form-control border-2"
 							id="property_desc" name="property_desc" required
-							placeholder="enter property area, exact location, etc."></input>
+							placeholder="enter property area, exact location, etc." value="${property.getProperty_desc() }"></input>
 					</div>
 				</div>
 
@@ -69,13 +69,13 @@ body {
 						<label class="form-label fw-bold" for="property_location">Property
 							Location</label> <input class="form-control border-2" type="text"
 							name="property_location" required
-							placeholder="Enter property location" value="xyz"></input>
+							placeholder="Enter property location" value=" ${property.getProperty_location() }"></input>
 					</div>
 					<div class="col-6">
 						<label class="form-label fw-bold" for="property_prize">Property
 							Prize</label> <input class="form-control border-2" type="text"
 							name="property_prize" required
-							placeholder="Enter property prize in rupees" />
+							placeholder="Enter property prize in rupees" value="${property.getProperty_prize() }" />
 					</div>
 
 				</div>
@@ -84,13 +84,13 @@ body {
 						<label class="form-label fw-bold" for="owner_name">Owner
 							Name </label> <input class="form-control border-2" type="text"
 							name="owner_name" required
-							placeholder="Enter property owner name"></input>
+							placeholder="Enter property owner name" value="${property.getOwner_name() }"></input>
 					</div>
 					<div class="col-6">
 						<label class="form-label fw-bold" for="owner_contact">Owner
 							Contact</label> <input class="form-control border-2" type="text"
 							name="owner_contact" required
-							placeholder="Enter property owner contact" />
+							placeholder="Enter property owner contact" value="${property.getOwner_contact() }" />
 					</div>
 
 				</div>

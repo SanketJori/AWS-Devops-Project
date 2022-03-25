@@ -71,7 +71,7 @@ label {
 
 			</div>
 			<div class="container text-center">
-				<button type="submit" class="w-50 btn btn-success">Login</button>
+				<button type="submit" class="w-50 btn btn-primary">Login</button>
 				<p class="mt-2">
 					Not a registered User? <strong><a href="userRegister">Register
 							here</a></strong>

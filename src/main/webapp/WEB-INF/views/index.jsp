@@ -5,6 +5,7 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -34,10 +35,10 @@ body {
 	padding: 20px 20px;
 }
 
-img {
+/* img {
 	width: 700px;
 	height: 600px;
-}
+} */
 
 .btn {
 	border: 1px solid #129;
@@ -47,12 +48,14 @@ img {
 	background-color: #129;
 }
 </style>
+
 <body>
-	<div class="container-fluid">
-		<div id="welcome-div" class="col-6 mt-5 bg-light shadow-lg m-auto">
-			<h1 style="color: #128" class="text-center">Welcome to 99 Accer.com</h1>
-			<h5 style="color: #569" class="text-center">Buy your dream land here</h5>
-			<div id="btn-div" class="text-center row mt-5">
+	<div class="container-fluid ">
+		<div id="welcome-div" class="col-6 mt-5 bg-light  shadow-lg m-auto">
+			<h1 style="color: #128" class="text-center">Welcome to VASTU.com</h1>
+			<h5 style="color: #569" class="text-center">Find, Buy & Own Your
+				Dream Land on India's No.1 Property Portal</h5>
+			<div id="btn-div" class="text-center row mt-4 mb-2">
 
 				<div class=" col-6">
 
@@ -69,5 +72,28 @@ img {
 			</div>
 
 
+
 		</div>
+		<div class="row w-75 m-auto mt-5 gx-5">
+		<h4 class="text-center text-dark text-border bg-light py-3">Find Better Places to Live, Work and Wonder...</h4>
+			<div class="col-3 bg-light p-1 ">
+				<img src="https://static.99acres.com/universalapp/img/d_hp_buy.webp" width="100%">
+				<h6 class="bg-light text-dark text-center p-2">Buy Your Own House</h6>
+			</div>
+			<div class="col-3 bg-light p-1 ">
+				<img src="https://static.99acres.com/universalapp/img/d_hp_pg.webp" width="100%">
+				<h6 class="bg-light text-dark text-center p-2">Rent Your House</h6>
+			</div>
+			<div class="col-3 bg-light p-1 ">
+				<img src="https://static.99acres.com/universalapp/img/d_hp_com_buy.webp" width="100%">
+				<h6 class="bg-light text-dark text-center p-2"> Sell/Rent your property</h6>
+			</div>
+			<div class="col-3 bg-light p-1">
+				<img src="https://static.99acres.com/universalapp/img/d_hp_com_lease.webp" width="100%">
+				<h6 class="bg-light text-dark text-center p-2">Buying commercial spaces</h6>
+			</div>
+
+
+		</div>
+	</div>
 </html>

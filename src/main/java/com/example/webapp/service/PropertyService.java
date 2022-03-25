@@ -24,15 +24,17 @@ public class PropertyService {
 		return propertyRepository.findAll();
 	}
 	
-	public void deleteProperty(int id) {
+	public void deleteProp(int id) {
 		
 		propertyRepository.deleteById(id);
 		
 	}
 	
-	public Optional<Property> getProperty(int id) {
+	public Optional<Property> getProp(int id) {
 		return propertyRepository.findById(id);
 		
 	}
+	
+	
 
 }
