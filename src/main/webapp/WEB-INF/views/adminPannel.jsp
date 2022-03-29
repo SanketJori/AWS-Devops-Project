@@ -147,29 +147,26 @@ body {
 							</div>
 							<div class="row">
 								<div class="col-2">
-									<%-- <form action="/getProperty/${property.getProperty_id()}"
+									<form action="/getProperty/${property.getProperty_id()}"
 										method="get" class="">
 										<input type="submit"
 											class="text-center btn btn-primary w-50 d-inline-flex"
 											value="update">
-									</form> --%>
-									<a href="/getProperty/${property.getProperty_id()}"
+									</form>
+									<%-- <a href="putProperty/${property.getProperty_id()}"
 										class="text-center btn btn-primary w-50 d-inline-flex">update</a>
-
+ --%>
 
 								</div>
 								<div class="col-1">
 									<form action="/deleteProperty/${property.getProperty_id()}"
-										method="get" class="">
+										method="delete" class="">
 										<input type="submit"
 											class="text-center btn btn-danger w-5 d-inline-flex"
-											value="delete">
+											value="delete" onclick="check()">
 									</form>
 								</div>
 							</div>
-
-
-
 						</div>
 					</c:forEach>
 				</div>
@@ -181,7 +178,7 @@ body {
 
 				<div class="m-auto">
 					<form class="m-auto w-75 shadow-lg p-4 mb-5 bg-light"
-						id="property-add" action="saveProperty" method="post">
+						id="property-add" action="/saveProperty" method="post">
 						<h3 class="text-center pb-2 ">Add New Property</h3>
 						<div class="row">
 							<div class="mb-3 col-6">
@@ -239,7 +236,8 @@ body {
 
 						<div class="m-auto text-center mt-5">
 							<input type="submit" class=" btn btn-primary w-25 fw-bold"
-								value="Save" />
+								value="Add" /> <a href="/displayProperty"
+								class="btn btn-secondary">cancel</a>
 						</div>
 
 

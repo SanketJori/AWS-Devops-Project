@@ -47,6 +47,11 @@ body {
 .btn:hover {
 	background-color: #129;
 }
+
+.p-img:hover{
+border:1px solid #888888 ;
+box-shadow: 0px 2px 10px #888888;
+}
 </style>
 
 <body>
@@ -77,19 +82,19 @@ body {
 		<div class="row w-75 m-auto mt-5 gx-5">
 		<h4 class="text-center text-dark text-border bg-light py-3">Find Better Places to Live, Work and Wonder...</h4>
 			<div class="col-3 bg-light p-1 ">
-				<img src="https://static.99acres.com/universalapp/img/d_hp_buy.webp" width="100%">
+				<img class="p-img" src="https://static.99acres.com/universalapp/img/d_hp_buy.webp" width="100%">
 				<h6 class="bg-light text-dark text-center p-2">Buy Your Own House</h6>
 			</div>
 			<div class="col-3 bg-light p-1 ">
-				<img src="https://static.99acres.com/universalapp/img/d_hp_pg.webp" width="100%">
+				<img class="p-img" src="https://static.99acres.com/universalapp/img/d_hp_pg.webp" width="100%">
 				<h6 class="bg-light text-dark text-center p-2">Rent Your House</h6>
 			</div>
 			<div class="col-3 bg-light p-1 ">
-				<img src="https://static.99acres.com/universalapp/img/d_hp_com_buy.webp" width="100%">
+				<img class="p-img" src="https://static.99acres.com/universalapp/img/d_hp_com_buy.webp" width="100%">
 				<h6 class="bg-light text-dark text-center p-2"> Sell/Rent your property</h6>
 			</div>
 			<div class="col-3 bg-light p-1">
-				<img src="https://static.99acres.com/universalapp/img/d_hp_com_lease.webp" width="100%">
+				<img class="p-img" src="https://static.99acres.com/universalapp/img/d_hp_com_lease.webp" width="100%">
 				<h6 class="bg-light text-dark text-center p-2">Buying commercial spaces</h6>
 			</div>
 

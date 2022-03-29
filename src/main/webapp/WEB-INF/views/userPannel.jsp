@@ -13,6 +13,11 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -39,11 +44,13 @@ body {
 		<nav class="navbar navbar-dark bg-dark">
 			<div class="float-left text-light d-inline-flex mx-5">
 				<a class="m-2 fw-bolder text-decoration-none text-light" href="#">HOME</a>
-				<a class="m-2 fw-bolder text-decoration-none text-light" href="#">CONTACT_US</a>
-				<form class="d-flex" action="#">
+				<a class="m-2 fw-bolder text-decoration-none text-light" href="#">ABOUT_US</a>
+				<form class="d-flex m-2" action="#">
 					<input class="form-control me-2" type="search"
 						placeholder="Search Property by City" aria-label="Search">
-					<button class="btn btn-outline-success" type="button">Search</button>
+					<button class="btn btn-outline-light p-1" type="button">
+						<i class="material-icons my-auto">search</i>
+					</button>
 				</form>
 
 			</div>
@@ -51,12 +58,6 @@ body {
 				<a class="navbar-brand fw-bold mx-5" href="#"> VASTU.com </a>
 				<h6 class="text-light">India's no.1 Property Portal</h6>
 			</div>
-
-			<%-- <div class="float-right mx-5">
-				<a href="/" class="btn btn-default text-light">${username} <span
-					class="text-danger">Logout</span>
-				</a>
-			</div> --%>
 			<div class="dropdown mx-1">
 				<button class="btn btn-secondary dropdown-toggle" type="button"
 					id="dropdownMenuButton1" data-bs-toggle="dropdown"
@@ -64,7 +65,8 @@ body {
 				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 					<li><a class="dropdown-item" href="#">User Profile</a></li>
 					<li><a class="dropdown-item" href="#">Contacted</a></li>
-					<li class="px-2"><a class="dropdown-item bg-danger text-light" href="/">Logout</a></li>
+					<li class="px-2"><a class="dropdown-item bg-danger text-light"
+						href="/">Logout</a></li>
 
 				</ul>
 			</div>
@@ -72,35 +74,20 @@ body {
 
 
 		</nav>
-		<!-- <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
-						<li class="nav-item" role="presentation">
-							<button class="nav-link active text-dark fw-bold" id="pills-home-tab" data-bs-toggle="pill"
-								data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-								aria-selected="true">All
-								Properties</button>
-						</li>
-						<!-- <li class="nav-item" role="presentation">
-							<button class="nav-link text-dark fw-bold" id="pills-profile-tab" data-bs-toggle="pill"
-								data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-								aria-selected="false">Add
-								New</button>
-						</li> 
-
-					</ul> -->
 		<div class="tab-content" id="pills-tabContent ">
 			<div class="tab-pane fade show active" id="pills-home"
 				role="tabpanel" aria-labelledby="pills-home-tab">
 				<div class="row mt-5">
 					<c:forEach items="${listProperty}" var="property">
-						<div class="col-10 m-auto w-75 shadow-lg p-4 mb-5 bg-light ">
-							<div class="row">
+						<div class="col-10 m-auto w-75 shadow-lg p-4 mb-5 bg-light">
+							<%-- <div class="row">
 								<div class="col-8">
 									<h5 class="shadow-lg w-50 p-1 text-center">
 										<b>Property ID :</b> ${property.getProperty_id() }
 									</h5>
 								</div>
 
-							</div>
+							</div> --%>
 
 
 							<div class="row">
@@ -158,7 +145,7 @@ body {
 								</div>
 							</div>
 
-							<div class="row">
+							<%-- <div class="row">
 								<div class="col-2">
 									<h5>
 										<b>Contact </b>
@@ -167,10 +154,10 @@ body {
 								<div class="col">
 									<h5>: ${property.getOwner_contact() }</h5>
 								</div>
-							</div>
+							</div> --%>
 
 							<div class="w-50 mt-2">
-								<a class="btn btn-primary w-50" href="#">Contact Seller</a>
+								<a class="btn btn-primary w-50" href="/contactOwner/${username}/${property.getProperty_id()}" >Contact Owner</a>
 							</div>
 
 
@@ -178,79 +165,6 @@ body {
 					</c:forEach>
 				</div>
 			</div>
-
-
-			<!-- <div class="tab-pane fade" id="pills-profile" role="tabpanel"
-							aria-labelledby="pills-profile-tab">
-
-							<div class="m-auto">
-								<form class="m-auto w-75 shadow-lg p-4 mb-5 bg-light" id="property-add"
-									action="saveProperty" method="post">
-									<h3 class="text-center pb-2 ">Add New Property</h3>
-									<div class="row">
-										<div class="mb-3 col-6">
-											<label class="form-label fw-bold" for="property_type">Property
-												Type</label> <select class="form-select border-2 " id="property_type"
-												name="property_type" required>
-												<option value="">Select property type</option>
-												<option value="plot">Plot</option>
-												<option value="flat">Flat</option>
-												<option value="house">House</option>
-												<option value="commercial">Commercial</option>
-												<option value="shop">Shop</option>
-												<option value="other">Other</option>
-											</select>
-										</div>
-
-										<div class="mb-3 col-6">
-											<label class="form-label fw-bold" for="property_desc">Property
-												Description</label>
-											<textarea class="form-control border-2" id="property_desc"
-												name="property_desc" rows="2" cols="30" required
-												placeholder="enter property area, exact location, etc."></textarea>
-										</div>
-									</div>
-
-									<div class=" row mb-3">
-										<div class="col-6">
-											<label class="form-label fw-bold" for="property_location">Property
-												Location</label> <input class="form-control border-2" type="text"
-												name="property_location" required
-												placeholder="Enter property location"></input>
-										</div>
-										<div class="col-6">
-											<label class="form-label fw-bold" for="property_prize">Property
-												Prize</label> <input class="form-control border-2" type="text"
-												name="property_prize" required placeholder="Enter property prize" />
-										</div>
-
-									</div>
-									<div class=" row mb-3">
-										<div class="col-6">
-											<label class="form-label fw-bold" for="owner_name">Owner
-												Name </label> <input class="form-control border-2" type="text"
-												name="owner_name" required
-												placeholder="Enter property owner name"></input>
-										</div>
-										<div class="col-6">
-											<label class="form-label fw-bold" for="owner_contact">Owner
-												Contact</label> <input class="form-control border-2" type="text"
-												name="owner_contact" required
-												placeholder="Enter property owner contact" />
-										</div>
-
-									</div>
-
-									<div class="m-auto text-center mt-5">
-										<input type="submit" class=" btn btn-primary w-50" value="Add" />
-									</div>
-
-
-
-								</form>
-							</div>
-
-						</div> -->
 
 		</div>
 

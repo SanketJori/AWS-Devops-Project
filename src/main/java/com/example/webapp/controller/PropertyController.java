@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -28,8 +29,9 @@ public class PropertyController {
 		propertyService.saveProperty(property);
 		return "redirect:/displayProperty";
 	}
+	
 
-	@RequestMapping("/displayProperty")
+	@GetMapping("/displayProperty")
 	public String displayProperty(Model m) {
 		List<Property> property = propertyService.getAllProperty();
 
@@ -46,12 +48,22 @@ public class PropertyController {
 
 	}
 
-	@RequestMapping("getProperty/{property_id}")
-	public String update(@PathVariable int property_id, Model m) {
-		Optional<Property> property = propertyService.getProp(property_id);
+	@GetMapping("/getProperty/{property_id}" )
+	public String getUpdate(@PathVariable int property_id, Model m) {
+		Property property = propertyService.getProp(property_id);
 		System.out.println(property);
-		m.addAttribute("listProperty", property);
+		m.addAttribute("property", property);
 		return "updateProperty";
+	}
+	
+	@GetMapping("/contactOwner/{username}/{property_id}")
+	public String contact(@PathVariable String username, @PathVariable int property_id , Model m) {
+		
+		Property property = propertyService.getProp(property_id);
+		m.addAttribute("property", property);
+		m.addAttribute("username", username);
+		
+		return "Contact";
 	}
 
 	

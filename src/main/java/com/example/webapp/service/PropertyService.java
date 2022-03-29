@@ -16,6 +16,7 @@ public class PropertyService {
 	PropertyRepository propertyRepository;
 	
 	public void saveProperty(Property property) {
+		
 		propertyRepository.save(property);
 		
 	}
@@ -30,8 +31,8 @@ public class PropertyService {
 		
 	}
 	
-	public Optional<Property> getProp(int id) {
-		return propertyRepository.findById(id);
+	public Property getProp(int id) {
+		return propertyRepository.getById(id);
 		
 	}
 	

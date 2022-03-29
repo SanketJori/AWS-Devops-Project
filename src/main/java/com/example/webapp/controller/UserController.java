@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -94,5 +96,13 @@ public class UserController {
 		}
 
 	}
-
+	
+	@GetMapping("/displayUserPannel/{username}")
+	public String display(@PathVariable String username,Model m) {
+		List<Property> property = propertyService.getAllProperty();
+		m.addAttribute("listProperty", property);
+		m.addAttribute("username", username);
+		return "userPannel";
+		
+	}
 }
