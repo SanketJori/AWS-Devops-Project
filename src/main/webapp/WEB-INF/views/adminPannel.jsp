@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <meta charset="ISO-8859-1">
@@ -30,13 +31,18 @@ body {
 
 
 </head>
+
 <body>
 
 	<div class="container-fluid">
 
 		<nav class="navbar navbar-dark bg-dark">
 			<div class="m-auto">
-				<a class="navbar-brand " href="#"> Bootstrap </a>
+				<a class="navbar-brand fw-bold mx-5" href="#"> VASTU.com </a>
+				<h6 class="text-light">India's no.1 Property Portal</h6>
+			</div>
+			<div class="float-right mx-5">
+				<a href="/" class="btn btn-default text-light bg-danger p-1">Logout</a>
 			</div>
 
 
@@ -61,6 +67,7 @@ body {
 			<div class="tab-pane fade show active" id="pills-home"
 				role="tabpanel" aria-labelledby="pills-home-tab">
 				<div class="row">
+<<<<<<< HEAD
 				<c:forEach items="${listProperty}" var="property">
 				<div class="col-10 m-auto w-75 shadow-lg p-4 mb-5 bg-light">
 				<h5><b>Property ID :</b> ${property.getProperty_id() }</h5>
@@ -80,6 +87,112 @@ body {
 				
 				</div>
 				</div>
+=======
+					<c:forEach items="${listProperty}" var="property">
+						<div class="col-10 m-auto w-75 shadow-lg p-4 mb-5 bg-light">
+							<div class="row">
+								<div class="col-8">
+									<h5 class="shadow-sm w-50 p-1 text-center">
+										<b>Property ID :</b> ${property.getProperty_id() }
+									</h5>
+								</div>
+								<div class="col-4"></div>
+
+							</div>
+
+
+							<div class="row">
+								<div class="col-2">
+									<h5>
+										<b>Property Type </b>
+									</h5>
+								</div>
+								<div class="col">
+									<h5>: ${property.getProperty_type() }</h5>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-2">
+									<h5>
+										<b>Description </b>
+									</h5>
+								</div>
+								<div class="col">
+									<h5>: ${property.getProperty_desc() }</h5>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-2">
+									<h5>
+										<b>Location </b>
+									</h5>
+								</div>
+								<div class="col">
+									<h5>: ${property.getProperty_location() }</h5>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-2">
+									<h5>
+										<b>Prize </b>
+									</h5>
+								</div>
+								<div class="col">
+									<h5>: ${property.getProperty_prize() }</h5>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-2">
+									<h5>
+										<b>Owner </b>
+									</h5>
+								</div>
+								<div class="col">
+									<h5>: ${property.getOwner_name() }</h5>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-2">
+									<h5>
+										<b>Contact </b>
+									</h5>
+								</div>
+								<div class="col">
+									<h5>: ${property.getOwner_contact() }</h5>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-2">
+									<form action="/getProperty/${property.getProperty_id()}"
+										method="get" class="">
+										<input type="submit"
+											class="text-center btn btn-primary w-50 d-inline-flex"
+											value="update">
+									</form>
+									<%-- <a href="putProperty/${property.getProperty_id()}"
+										class="text-center btn btn-primary w-50 d-inline-flex">update</a>
+ --%>
+
+								</div>
+								<div class="col-1">
+									<form action="/deleteProperty/${property.getProperty_id()}"
+										method="delete" class="">
+										<input type="submit"
+											class="text-center btn btn-danger w-5 d-inline-flex"
+											value="delete" onclick="check()">
+									</form>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</div>
+>>>>>>> acaba36658c6555871841431d397125bf3c34c2e
 
 
 			<div class="tab-pane fade" id="pills-profile" role="tabpanel"
@@ -87,7 +200,11 @@ body {
 
 				<div class="m-auto">
 					<form class="m-auto w-75 shadow-lg p-4 mb-5 bg-light"
+<<<<<<< HEAD
 						id="property-add" action="saveProperty" method="post">
+=======
+						id="property-add" action="/saveProperty" method="post">
+>>>>>>> acaba36658c6555871841431d397125bf3c34c2e
 						<h3 class="text-center pb-2 ">Add New Property</h3>
 						<div class="row">
 							<div class="mb-3 col-6">
@@ -106,10 +223,16 @@ body {
 
 							<div class="mb-3 col-6">
 								<label class="form-label fw-bold" for="property_desc">Property
+<<<<<<< HEAD
 									Description</label>
 								<textarea class="form-control border-2" id="property_desc"
 									name="property_desc" rows="2" cols="30" required
 									placeholder="enter property area, exact location, etc."></textarea>
+=======
+									Description</label> <input class="form-control border-2"
+									id="property_desc" name="property_desc" required
+									placeholder="enter property area, exact location, etc."></input>
+>>>>>>> acaba36658c6555871841431d397125bf3c34c2e
 							</div>
 						</div>
 
@@ -124,7 +247,7 @@ body {
 								<label class="form-label fw-bold" for="property_prize">Property
 									Prize</label> <input class="form-control border-2" type="text"
 									name="property_prize" required
-									placeholder="Enter property prize" />
+									placeholder="Enter property prize in rupees" />
 							</div>
 
 						</div>
@@ -145,7 +268,9 @@ body {
 						</div>
 
 						<div class="m-auto text-center mt-5">
-							<input type="submit" class=" btn btn-primary w-50" value="Add" />
+							<input type="submit" class=" btn btn-primary w-25 fw-bold"
+								value="Add" /> <a href="/displayProperty"
+								class="btn btn-secondary">cancel</a>
 						</div>
 
 
@@ -160,4 +285,5 @@ body {
 	</div>
 
 </body>
+
 </html>

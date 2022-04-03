@@ -1,5 +1,6 @@
 package com.example.webapp.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,36 +8,39 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.webapp.model.Property;
 import com.example.webapp.model.User;
+import com.example.webapp.service.PropertyService;
 import com.example.webapp.service.UserService;
-
-
 
 @Controller
 public class UserController {
-	
+
 	@Autowired
 	UserService userService;
-	
+	@Autowired
+	PropertyService propertyService;
+
 	@RequestMapping("/userLogin")
 	public String userLogin() {
 		return "userLoginForm";
 	}
-		
+
 	@RequestMapping("/userRegister")
 	public String userRegister() {
 		return "userRegisterForm";
 	}
-	
+
 	@RequestMapping("/adminLogin")
 	public String adminLogin() {
 		return "adminLoginForm";
 	}
-	
-	
+
 	@PostMapping("/processUserLoginForm")
 	public String processLoginForm(String email, String password, Model m) {
 
@@ -46,12 +50,15 @@ public class UserController {
 			m.addAttribute("login_error", "Invalid username or password");
 			return "userLoginForm";
 		} else {
-
+			List<Property> property = propertyService.getAllProperty();
+			System.out.println(property);
+			m.addAttribute("username",email);
+			m.addAttribute("listProperty", property);
 			return "userPannel";
 		}
 
 	}
-	
+
 	@PostMapping("/userRegister")
 	public String registerUser(User user, Model m) {
 		Optional<User> optional = userService.getUserEmail(user.getEmail());
@@ -66,15 +73,23 @@ public class UserController {
 		return "userRegisterForm";
 
 	}
-	
+
 	@PostMapping("/processAdminLoginForm")
 	public String processAdminLoginForm(HttpServletRequest request, Model m) {
 		String aname = request.getParameter("admin_name");
 		String apassword = request.getParameter("admin_password");
 
 		System.out.println(aname + " " + apassword);
+<<<<<<< HEAD
 		if(aname != null) {
 		
+=======
+		if (aname != null) {
+			List<Property> property = propertyService.getAllProperty();
+			
+			m.addAttribute("listProperty", property);
+
+>>>>>>> acaba36658c6555871841431d397125bf3c34c2e
 			return "adminPannel";
 
 		} else {
@@ -87,6 +102,17 @@ public class UserController {
 
 	}
 	
+<<<<<<< HEAD
 	
 	
+=======
+	@GetMapping("/displayUserPannel/{username}")
+	public String display(@PathVariable String username,Model m) {
+		List<Property> property = propertyService.getAllProperty();
+		m.addAttribute("listProperty", property);
+		m.addAttribute("username", username);
+		return "userPannel";
+		
+	}
+>>>>>>> acaba36658c6555871841431d397125bf3c34c2e
 }
